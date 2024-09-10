@@ -2,54 +2,50 @@ $(document).ready(function () {
 
     console.log("Hello!");
 
+    const form = document.getElementById('add_product_form')
+
     $(document).on("click", "#add_product_btn", function (e) {
 
         console.log("Click add!");
 
+        const product_name = document.getElementById('id_name');
+        const product_description = document.getElementById('id_description');
+        const product_price = document.getElementById('id_price');
+        
+        console.log(product_name.value, product_description.value, product_price.value);
+
         e.preventDefault();
 
-        var remove_url = $(this).attr("href");
+        var create_product_url = $(this).attr("href");
 
-        console.log(remove_url);
-
-        // $.ajax({
+        $.ajax({
             
-        //     type: "POST",
-        //     url: remove_url,
-        //     data: {
-        //         cart_id: cart_id,
-        //         csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
-        //     },
+            type: "POST",
+            url: create_product_url,
+            data: {
+                product_name: product_name.value,
+                product_description: product_description.value,
+                product_price: product_price.value,
+                csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
+            },
 
-        //     success: function (data) {
+            success: function (data) {
 
-        //         var cartItemsContainer = $("#cart-items-container");
-        //         cartItemsContainer.html(data.cart_items_html);
+                console.log("New product added!");
 
-        //         cart_count -= data.quantity_deleted;
-        //         goods_in_cart_count.text(cart_count);
+                if (data.redirect) {
 
+                    window.location = "/";
 
-        //         var cart_items_container = $("#cart-items-container");
-        //         cart_items_container.html(data.cart_items_html);
+                }
 
-        //         var orderConfirmationWrapper = $("#order_confirmation_wrapper");
-        //         orderConfirmationWrapper.html(data.cart_items_html);
-                
+            },
 
-        //         if (data.redirect) {
-
-        //             window.location = "/";
-
-        //         }
-
-        //     },
-
-        //     error: function (data) {
-        //         console.log("Ошибка при удалении корзины");
-        //     }
+            error: function (data) {
+                console.log("Error");
+            }
             
-        // });
+        });
 
     });
 
