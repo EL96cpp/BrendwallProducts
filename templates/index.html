@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brendwall products</title>
+    <link type="text/css" href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'js/ajax-script.js' %}"></script>
+</head>
+<body>
+    <div class="main_wraper">
+        <form action="{% url 'products:product_add' %}" method="post" class="add_product_form">
+            add_product_form
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" id="add_product_btn">Добавить</button>
+        </form>
+        <div class="products_list">
+            {% for product in products %}
+    
+                <div class="product_wrapper">
+                    <span class="product_name">{{ product.name }}</span>
+                    <text class="product_description">{{ product.description }}</text>
+                    <span class="product_price">{{ product.price }}</span>
+                </div>
+    
+            {% endfor %}
+
+        </div>
+    </div>
+</body>
+</html>
