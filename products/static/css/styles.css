@@ -25,10 +25,23 @@ body {
     border-radius: 30px;
     background-color: #004f90;
     float: left;
+    color: white;
+
+    margin: 10px 40px 10px 40px;
+    padding: 10px;
+    position: sticky;
+    top: 10px;
+}
+
+.add_product_title {
+    font-size: 20px;
+    color: white;
+    margin: 10 auto;
 }
 
 #add_product_btn {
     margin: 0 auto;
+    margin-top: 40px;
     background-color: #133a59;
     color: white;
     font-size: 20px;
@@ -51,6 +64,7 @@ body {
 
 .products_list {
     width: 1000px;
+    margin: 10 auto;
     float: left;
 }
 

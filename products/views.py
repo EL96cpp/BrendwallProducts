@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from .models import Product
+from .forms import AddProductForm
 
 
 def product_add(request):
@@ -9,4 +10,5 @@ def product_add(request):
 
 def products_list(request):
     products = Product.objects.all()
-    return render(request, 'index.html', {"products": products})
+    form = AddProductForm()
+    return render(request, 'index.html', {"form": form, "products": products})
