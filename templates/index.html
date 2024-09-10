@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brendwall products</title>
     <link type="text/css" href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/ajax-script.js' %}"></script>
 </head>
 <body>
     <div class="main_wraper">
-        <form action="{% url 'products:product_add' %}" method="post" class="add_product_form">
+        <form action="#" method="post" class="add_product_form">
             add_product_form
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" id="add_product_btn">Добавить</button>
+            <button type="submit" id="add_product_btn" href="">Добавить</button>
         </form>
         <div class="products_list">
             {% for product in products %}
