@@ -37,13 +37,14 @@ body {
     top: 10px;
 }
 
-.message_wrapper {
+#message_wrapper {
     background-color: #006ec8;
     border-radius: 10px;
-    width: 350px;
-    /* height: 100px; */
-    margin: 10px 40px 10px 40px;
+    max-width: 350px;
+    margin-left: 40px;
+    margin-top: 20px;
     align-items: center;
+    padding: 20px;
 }
 
 #message_span {

@@ -16,9 +16,11 @@
                 <span class="add_product_title">Добавить товар</span>
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" id="add_product_btn" href='{% url "products:product_add" %}'>Добавить</button>
+                <button type="submit" id="add_product_btn" href='{% url "products:product_add" %}'>Отправить</button>
             </form>
-            <span id="message_span"></span>
+            <div id="message_wrapper">
+                <span id="message_span"></span>
+            </div>
         </div>
         <div id="products_list">
 
