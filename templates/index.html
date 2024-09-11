@@ -11,22 +11,18 @@
 </head>
 <body>
     <div class="main_wraper">
-        <form id="add_product_form">
-            <span class="add_product_title">Добавить товар</span>
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" id="add_product_btn" href='{% url "products:product_add" %}'>Добавить</button>
-        </form>
-        <div class="products_list">
-            {% for product in products %}
-    
-                <div class="product_wrapper">
-                    <span class="product_name">{{ product.name }}</span>
-                    <text class="product_description">{{ product.description }}</text>
-                    <span class="product_price">{{ product.price }}</span>
-                </div>
-    
-            {% endfor %}
+        <div class="form_wrapper">
+            <form id="add_product_form">
+                <span class="add_product_title">Добавить товар</span>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" id="add_product_btn" href='{% url "products:product_add" %}'>Добавить</button>
+            </form>
+            <span id="message_span"></span>
+        </div>
+        <div id="products_list">
+
+            {% include "includes/products.html" %}
 
         </div>
     </div>

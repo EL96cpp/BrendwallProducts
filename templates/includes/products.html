@@ -1,0 +1,11 @@
+{% load static %}
+
+{% for product in products %}
+    
+<div class="product_wrapper">
+    <span class="product_name">{{ product.name }}</span>
+    <text class="product_description">{{ product.description }}</text>
+    <span class="product_price">{{ product.price }}</span>
+</div>
+
+{% endfor %}
