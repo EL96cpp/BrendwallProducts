@@ -1,6 +1,10 @@
 $(document).ready(function () {
 
-    const form = document.getElementById('add_product_form')
+    const form = document.getElementById('add_product_form');
+    var productList = $("#products_list");
+    var message_span = $("#message_span");
+    var message_wrapper = $("#message_wrapper");
+    message_wrapper.hide();
 
     $(document).on("click", "#add_product_btn", function (e) {
 
@@ -25,14 +29,8 @@ $(document).ready(function () {
 
             success: function (data) {
 
-                console.log("New product added!");
-
-                var productList = $("#products_list");
                 productList.html(data.products_html);
-
-                var message_span = $("#message_span");
                 message_span.text(data.message);
-                var message_wrapper = $("#message_wrapper");
                 message_wrapper.show();
                 message_wrapper.delay(2000).fadeOut();
 
@@ -41,10 +39,7 @@ $(document).ready(function () {
 
             error: function (data) {
 
-                console.log(data.responseJSON.message);
-                var message_span = $("#message_span");
                 message_span.text(data.responseJSON.message);
-                var message_wrapper = $("#message_wrapper");
                 message_wrapper.show();
                 message_wrapper.delay(2000).fadeOut();
 
